@@ -1,0 +1,13 @@
+SELECT id, cardname, carddescription, artist, flavortext, cardimage, cardnumber, power, toughness, rarity
+	FROM public.cards;
+	
+INSERT INTO public.cards (id, cardname, carddescription, artist, flavortext, cardimage, cardnumber, power, toughness, rarity)
+VALUES (22, 'Tarmogoyf', 'BestCard', 'SteveArgyle', 'Grow the Goyf', 'Great Picture', '100', '5', '6', 'Mythic');
+
+
+
+
+
+
+
+
