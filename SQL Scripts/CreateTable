@@ -1,0 +1,16 @@
+DROP TABLE cards;
+
+CREATE TYPE cardRarity AS ENUM ('Common','Uncommon','Rare','Mythic');
+
+CREATE TABLE cards(
+id SERIAL PRIMARY KEY NOT NULL,
+cardName TEXT NOT NULL,
+cardDescription TEXT NOT NULL,
+artist TEXT NOT NULL,
+flavorText TEXT NOT NULL,
+cardImage TEXT NOT NULL, 
+cardNumber INTEGER NOT NULL,
+power INTEGER NOT NULL,
+toughness INTEGER NOT NULL,
+rarity cardRarity NOT NULL
+);
