@@ -5,7 +5,7 @@ public class Main {
         test.Name = "Tarmogoyf";
         System.out.println(test.Name);
         cardDatabase GoyfDatabase = new cardDatabase();
-        GoyfDatabase.GetCardById(1);
+        GoyfDatabase.GetCardById(22);
     }
 
 }
