@@ -43,6 +43,10 @@ public class MagicCard {
         this.Type = type;
 
     }
+
+    public MagicCard() {
+
+    }
 //must finish constructor so that it includes all of these types above
 
 }
