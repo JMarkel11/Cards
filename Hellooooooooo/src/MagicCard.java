@@ -47,7 +47,7 @@ public class MagicCard {
     public MagicCard() {
 
     }
-//must finish constructor so that it includes all of these types above
+
 
 }
 

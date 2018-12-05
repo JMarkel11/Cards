@@ -50,16 +50,48 @@ public class cardDatabase {
      return result;
      }
 
-     public void insertCardIntoDatabase(MagicCard card) {
-         // put all the stuff in card into the database
+     public int insertCardIntoDatabase(MagicCard card) {
+         int finalId = 0;
+         String Address = System.getenv("POSTGRES_ADDRESS");
+         String UserName = System.getenv("POSTGRES_USERNAME");
+         String Password = System.getenv("POSTGRES_PASSWORD");
+
+         Connection c = null;
+         Statement stmt = null;
+         try {
+             Class.forName("org.postgresql.Driver");
+             c = DriverManager
+                     .getConnection(Address,
+                             UserName, Password);
+             c.setAutoCommit(false);
+             System.out.println("Opened database successfully");
+
+             stmt = c.createStatement();
+             String sql = "INSERT INTO CARDS (cardname, carddescription, artist, flavortext, cardimage, cardnumber, power, toughness, rarity) " // MAKE THIS STRING WITH ALL THE COLUMN NAMES IN IT
+                     + "VALUES ("LavaSpike', 'Deal 3 Damage', 'Me'', 'Spikey', 'FireballImage', '4', 0, 0, 'uncommon' );"; // MAKE THIS STRING WITH THE CORRESPONDING VALUES IN card
+             stmt.executeUpdate(sql);
+
+
+             stmt.close();
+             c.commit();
+             c.close();
+         } catch (Exception e) {
+             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+             System.exit(0);
+         }
+         System.out.println("Records created successfully");
+         return finalId;
      }
 
      public void updateCardInDatabase(int id, MagicCard input) {
+         String sql = "UPDATE CARDS (carddescription) = Deal 4 Damage WHERE = ID =22; "
          // replace all the stuff in card #id with all the stuff in input
+         //updateCardInDatabase(22, Bolt, threedamage, ChrisRush, Boltzzz, BestImage, 1, none, none, Common, Instant);
      }
 
      public void deleteCardInDatabase(int id) {
-         // Deletes this row in the cards table
+         String sql = "DELETE FROM CARDS (cardname) WHERE carddescription = 'Deal 3 Damage' "
+         //updateCardInDatabase() artist = ChrisRush WHERE id = 22;
      }
 
 
